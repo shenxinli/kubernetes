@@ -89,6 +89,13 @@ systemctl start kubelet && systemctl enable kubelet
 
 ## Kubernetes集群初始化
 进入k8s-master主机
+
+修改主机名称
+<pre>
+hostnamectl set-hostname k8s-master
+</pre>
+
+启动kubernetes初始化
 <pre>
 kubeadm init --apiserver-advertise-address=192.168.4.133 --pod-network-cidr=192.168.0.0/16
 </pre>
