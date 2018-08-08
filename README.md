@@ -63,7 +63,7 @@ cat &lt;&lt;EOF &gt /etc/systemd/system/docker.service.d/http-proxy.conf
 [Service]
 Environment="HTTP_PROXY=http://192.168.1.89:7071/" "HTTPS_PROXY=http://192.168.1.89:7071/" "NO_PROXY=localhost,127.0.0.1,192.168.4.133"
 EOF
-systemctl daemon-reload && systemctl start docker
+systemctl daemon-reload && systemctl restart docker
 </pre>
 
 安装Kubernetes
