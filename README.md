@@ -60,3 +60,15 @@ yum install -y kubelet kubeadm kubectl
 <pre>
 kubeadm init --apiserver-advertise-address=192.168.4.129 --pod-network-cidr=192.168.0.0/16
 </pre>
+
+启动后，根据提示运行
+<pre>
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</pre>
+
+安装flannel网络环境
+<pre>
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</pre>
