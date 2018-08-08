@@ -1,10 +1,25 @@
 # 部署kubernetes集群(代理模式)
 安装前提，设置能够访问国外网站的代理。
 
+## 网络代理设置：
+<pre>
+vi /etc/profile
+</pre>
+<pre>
+http_proxy=192.168.1.89:7071
+https_proxy=192.168.1.89:7071
+no_proxy=localhost,127.0.0.1,192.168.4.133
+export http_proxy https_proxy no_proxy
+</pre>
+<pre>
+source /etc/profile
+</pre>
+其中192.168.1.89:7071是网络代理服务器地址。
+
 ## 安装环境
 <pre>
-192.168.4.129      k8s-master
-192.168.4.130      k8s-node1
+192.168.4.133      k8s-master
+192.168.4.134      k8s-node1
 </pre>
 
 ## 安装kubernetes
@@ -58,7 +73,7 @@ yum install -y kubelet kubeadm kubectl
 ## Kubernetes集群初始化
 进入k8s-master主机
 <pre>
-kubeadm init --apiserver-advertise-address=192.168.4.129 --pod-network-cidr=192.168.0.0/16
+kubeadm init --apiserver-advertise-address=192.168.4.133 --pod-network-cidr=192.168.0.0/16
 </pre>
 
 启动后，根据提示运行
