@@ -63,7 +63,7 @@ cat &lt;&lt;EOF &gt /etc/systemd/system/docker.service.d/http-proxy.conf
 [Service]
 Environment="HTTP_PROXY=http://$proxy/" "HTTPS_PROXY=http://$proxy/" "NO_PROXY=$no_proxy"
 EOF
-systemctl start docker && systemctl enable docker
+systemctl daemon-reload && systemctl start docker
 </pre>
 
 安装Kubernetes
