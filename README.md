@@ -40,6 +40,7 @@ sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig
 <pre>
 modprobe br_netfilter
 echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
+echo '1' > /proc/sys/net/ipv4/ip_forward
 </pre>
 
 关闭SWAP
@@ -115,7 +116,24 @@ kubectl get pods --all-namespaces
 ## 部署集群节点
 进入k8s-node1,按照上述步骤，进行网络代理设置，安装环境，安装kubernetes。
 
-将k8s-node1，加入到集群中。
+### 注意
+若失败，原因如下
+<pre>
+Failed to request cluster info, will try again: [Get https://192.168.4.133:6443/api/v1/namespaces/kube-public/configmaps/cluster-info: Forbidden]
+</pre>
+解决办法: 网络代理设置的时候将k8s-master的ip加入到no_proxy中。
+
+<pre>
+[ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1
+[ERROR FileContent--proc-sys-net-ipv4-ip_forward]: /proc/sys/net/ipv4/ip_forward contents are not set to 1
+</pre>
+解决办法:
+<pre>
+echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
+echo '1' > /proc/sys/net/ipv4/ip_forward
+</pre>
+
+### 将k8s-node1，加入到集群中。
 <pre>
 kubeadm join 192.168.4.133:6443 --token z6qhac.n3ag7uy8rvkc06dj --discovery-token-ca-cert-hash sha256:bb744e7ed7d708a62d3b4278fba0e528505437159156b48311e95cdc6c017207
 </pre>
