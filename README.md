@@ -90,7 +90,7 @@ systemctl start kubelet && systemctl enable kubelet
 ## Kubernetes集群初始化
 进入k8s-master主机
 
-修改主机名称
+修改master主机名称
 <pre>
 hostnamectl set-hostname k8s-master
 </pre>
@@ -122,6 +122,11 @@ kubectl get pods --all-namespaces
 
 ## 部署集群节点
 进入k8s-node1,按照上述步骤，进行网络代理设置，安装环境，安装kubernetes。
+
+修改k8s-node主机名称
+<pre>
+hostnamectl set-hostname k8s-node1
+</pre>
 
 ### 将k8s-node1，加入到集群中。
 <pre>
