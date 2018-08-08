@@ -1,7 +1,14 @@
 # 部署kubernetes集群(代理模式)
 安装前提，设置能够访问国外网站的代理。
 
-安装kubernetes
+## 安装环境
+==============================================
+<pre>
+192.168.4.129      k8s-master
+192.168.4.130      k8s-node1
+</pre>
+
+## 安装kubernetes
 ===============================================
 
 关闭防火墙
@@ -48,4 +55,11 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
         https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 yum install -y kubelet kubeadm kubectl
+</pre>
+
+## Kubernetes集群初始化
+=============================================================
+进入k8s-master主机
+<pre>
+kubeadm init --apiserver-advertise-address=192.168.4.129 --pod-network-cidr=192.168.0.0/16
 </pre>
