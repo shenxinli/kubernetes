@@ -11,8 +11,7 @@
 
 关闭防火墙
 <pre>
-systemctl stop firewalld
-systemctl disable firewalld
+systemctl stop firewalld && systemctl disable firewalld
 </pre>
 
 关闭Selinux
