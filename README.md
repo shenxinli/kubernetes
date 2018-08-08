@@ -72,3 +72,11 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 <pre>
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 </pre>
+
+以上步骤，若没有错误，表示初始化成功。
+
+验证集群初始化
+<pre>
+kubectl get nodes
+kubectl get pods --all-namespaces
+</pre>
