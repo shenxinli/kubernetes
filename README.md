@@ -1,6 +1,9 @@
 # 部署kubernetes集群(代理模式)
 安装前提，设置能够访问国外网站的代理。
 
+安装kubernetes
+===============================================
+
 关闭防火墙
 <pre>
 systemctl stop firewalld
