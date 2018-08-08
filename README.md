@@ -56,6 +56,16 @@ yum install -y docker-ce
 systemctl start docker && systemctl enable docker
 </pre>
 
+设置docker代理
+<pre>
+mkdir -p /etc/systemd/system/docker.service.d
+cat &lt;&lt;EOF &gt /etc/systemd/system/docker.service.d/http-proxy.conf
+[Service]
+Environment="HTTP_PROXY=http://$proxy/" "HTTPS_PROXY=http://$proxy/" "NO_PROXY=$no_proxy"
+EOF
+systemctl start docker && systemctl enable docker
+</pre>
+
 安装Kubernetes
 <pre>
 cat &lt;&lt;EOF &gt /etc/yum.repos.d/kubernetes.repo
