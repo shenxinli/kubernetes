@@ -71,6 +71,11 @@ EOF
 yum install -y kubelet kubeadm kubectl
 </pre>
 
+启动kubelet服务
+<pre>
+systemctl start kubelet && systemctl enable kubelet
+</pre>
+
 ## Kubernetes集群初始化
 进入k8s-master主机
 <pre>
