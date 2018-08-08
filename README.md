@@ -15,7 +15,7 @@ export http_proxy https_proxy no_proxy
 <pre>
 source /etc/profile
 </pre>
-其中192.168.1.89:7071是网络代理服务器地址。
+其中192.168.1.89:7071是网络代理服务器地址,no_proxy一定要加上本机的IP地址。
 
 ## 安装环境
 <pre>
