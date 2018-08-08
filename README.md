@@ -6,6 +6,7 @@
 vi /etc/profile
 </pre>
 <pre>
+添加以下内容:
 http_proxy=192.168.1.89:7071
 https_proxy=192.168.1.89:7071
 no_proxy=localhost,127.0.0.1,192.168.4.133
