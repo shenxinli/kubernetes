@@ -94,7 +94,7 @@ hostnamectl set-hostname k8s-master
 
 启动kubernetes初始化
 <pre>
-kubeadm init --apiserver-advertise-address=192.168.4.133 --pod-network-cidr=192.168.0.0/16
+kubeadm init --apiserver-advertise-address=192.168.4.133 --pod-network-cidr=10.244.0.0/16
 </pre>
 
 启动后，根据提示运行
