@@ -162,3 +162,9 @@ docker run -d --restart=unless-stopped -p 8080:8080 rancher/serve
 
 ### 注意
 在添加主机的过程比较长，需要耐心等待，如果长时间(10分钟)出不来仪表盘，可以重试几次。
+
+参考
+https://segmentfault.com/a/1190000013730667
+https://kubernetes.io/docs/setup/
+https://blog.frognew.com/2018/03/kubeadm-install-kubernetes-1.10.html
+https://blog.csdn.net/andriy_dangli/article/details/79269348
