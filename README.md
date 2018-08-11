@@ -159,3 +159,6 @@ yum install docker
 docker run -d --restart=unless-stopped -p 8080:8080 rancher/serve
 </pre>
 然后根据提示添加kubernetes环境。不过根据试验，需要更新基础设施（升级到v1.11.1-rancher-1-3-1）。
+
+### 注意
+在添加主机的过程比较长，需要耐心等待，如果长时间(10分钟)出不来仪表盘，可以重试几次。
