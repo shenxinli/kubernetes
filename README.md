@@ -147,3 +147,15 @@ echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
 echo '1' > /proc/sys/net/ipv4/ip_forward
 </pre>
 
+## 用rancher来部署kubernetes
+安装docker1.3.1
+<pre>
+yum install docker
+</pre>
+
+### 配置rancher-server
+根据https://rancher.com/docs/rancher/v1.6/zh/ ，运行
+<pre>
+docker run -d --restart=unless-stopped -p 8080:8080 rancher/serve
+</pre>
+然后根据提示添加kubernetes环境。不过根据试验，需要更新基础设施（升级到v1.11.1-rancher-1-3-1）。
