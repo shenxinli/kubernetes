@@ -23,7 +23,7 @@ source /etc/profile
 192.168.4.134      k8s-node1
 </pre>
 
-## 安装kubernetes
+## 安装docker
 
 关闭防火墙
 <pre>
@@ -67,7 +67,7 @@ EOF
 systemctl daemon-reload && systemctl restart docker
 </pre>
 
-安装Kubernetes
+## 安装Kubernetes
 <pre>
 cat &lt;&lt;EOF &gt /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
